@@ -8,18 +8,29 @@ spring:
               uri: lb://auth-service
               predicates:
                 - Path=/api/v1/auth/**,  /api/v1/users/**
+              filters:
+                - JwtAuthenticationFilter
+
             - id: restaurant-service-route
               uri: lb://restaurant-service
               predicates:
                 - Path=/api/v1/restaurants/**
+              filters:
+                - JwtAuthenticationFilter
+
             - id: order-service-route
               uri: lb://order-service
               predicates:
                 - Path=/api/v1/orders/**
+              filters:
+                - JwtAuthenticationFilter
+
             - id: notification-service-route
               uri: lb://notification-service
               predicates:
                 - Path=/api/v1/notifications/**
+              filters:
+                - JwtAuthenticationFilter
 
 server:
   port: 8080
