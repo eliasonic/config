@@ -45,3 +45,6 @@ management:
     web:
       exposure:
         include: health, info
+
+jwt:
+  secret: Z8VZeLzVDBzzH6D2UG9LVHsYdls8dnvzwc3nX5kj2Tc=
