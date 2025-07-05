@@ -1,0 +1,36 @@
+server:
+  port: 8084
+
+spring:
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ea.main.app@gmail.com
+    password: pbqyqchegnnlkcex
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls.enable: true
+  rabbitmq:
+    host: rabbitmq
+    port: 5672
+    username: guest
+    password: guest
+    queue:
+      order.placed: order.placed.notification
+      exchange: order.events
+
+mail:
+  from: ea.main.app@gmail.com
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info

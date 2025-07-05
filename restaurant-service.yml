@@ -1,9 +1,9 @@
 server:
-  port: 8081
+  port: 8082
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/auth_db
+    url: jdbc:postgresql://localhost:5432/restaurant_db
     username: postgres
     password: rootUser
     driver-class-name: org.postgresql.Driver
@@ -14,6 +14,14 @@ spring:
       hibernate:
         format_sql: true
     show-sql: true
+  rabbitmq:
+    host: rabbitmq
+    port: 5672
+    username: guest
+    password: guest
+    queue:
+      order.placed: order.placed.restaurant
+      exchange: order.events
 
 eureka:
   client:
@@ -28,4 +36,3 @@ management:
 
 jwt:
   secret: Z8VZeLzVDBzzH6D2UG9LVHsYdls8dnvzwc3nX5kj2Tc=
-  expiration: 900000
