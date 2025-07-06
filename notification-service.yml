@@ -4,14 +4,22 @@ server:
 spring:
   mail:
     host: smtp.gmail.com
-    port: 587
+    port: 465
     username: ea.main.app@gmail.com
     password: pbqyqchegnnlkcex
+    protocol: smtps
     properties:
       mail:
         smtp:
           auth: true
-          starttls.enable: true
+          ssl:
+            enable: true
+            required: true
+          connectiontimeout: 5000
+          timeout: 5000
+          writetimeout: 5000
+        transport:
+          protocol: smtps
   rabbitmq:
     host: localhost
     port: 5672
