@@ -10,7 +10,7 @@ spring:
             - id: auth-service-route
               uri: lb://auth-service
               predicates:
-                - Path=/api/v1/auth/**,  /api/v1/users/**
+                - Path=/api/v1/auth/**, /api/v1/users/**
               filters:
                 - name: JwtAuthenticationFilterFactory
 
@@ -47,4 +47,4 @@ management:
         include: health, info
 
 jwt:
-  secret: Z8VZeLzVDBzzH6D2UG9LVHsYdls8dnvzwc3nX5kj2Tc=
+  secret: ${JWT_SECRET}

@@ -5,8 +5,8 @@ spring:
   mail:
     host: smtp.gmail.com
     port: 465
-    username: ea.main.app@gmail.com
-    password: pbqyqchegnnlkcex
+    username: ${MAIL_USER}
+    password: ${MAIL_PASSWORD}
     protocol: smtps
     properties:
       mail:
@@ -21,14 +21,14 @@ spring:
   rabbitmq:
     host: localhost
     port: 5672
-    username: guest
-    password: guest
+    username: ${RABBITMQ_USER}
+    password: ${RABBITMQ_PASSWORD}
     queue:
       order.placed: order.placed.notification
       exchange: order.events
 
 mail:
-  from: ea.main.app@gmail.com
+  from: ${MAIL_USER}
 
 eureka:
   client:
